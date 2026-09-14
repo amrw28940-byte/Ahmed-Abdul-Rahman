@@ -67,7 +67,7 @@ export default function TestimonialsSection() {
                 </div>
 
                 {/* النجوم الذهبية */}
-                <div className="flex gap-1 text-amber-200 text-sm">
+                <div className="flex gap-1 text-amber-200 text-sm" aria-label="5 نجوم تقييم">
                   {"★".repeat(5)}
                 </div>
               </div>

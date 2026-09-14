@@ -58,7 +58,7 @@ export default function ResultsSection() {
               <div className="relative h-72 w-full overflow-hidden bg-slate-100">
                 <Image
                   src={item.image}
-                  alt={item.title}
+                  alt={`نتيجة عملية ${item.title} مع دكتور أحمد عبد الرحمن`}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
@@ -82,6 +82,7 @@ export default function ResultsSection() {
                 <div className="pt-2">
                   <Link
                     href="/booking"
+                    title={`احجز استشارتك الآن لإجراء ${item.title}`}
                     className="inline-flex items-center justify-center w-full py-3 rounded-xl bg-[#0082a9] text-white font-semibold text-sm shadow-lg hover:bg-[#5bc0de] transition-all duration-300"
                   >
                     احجز استشارتك لهذه الحالة

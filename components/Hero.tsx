@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Hero() {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-slate-900">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-slate-900" dir="rtl">
       {/* خلفية الفيديو المحلي من مجلد public */}
       <div className="absolute inset-0 z-0 opacity-45">
         <video
@@ -39,6 +39,7 @@ export default function Hero() {
           {/* الانتقال لصفحة الحجز المستقلة الفخمة */}
           <Link
             href="/booking"
+            title="احجز موعد استشارتك الطبية الآن"
             className="w-full sm:w-auto px-8 py-4 rounded-xl bg-medical-light text-white font-semibold shadow-xl hover:bg-medical-dark transition-all duration-300 transform hover:-translate-y-1 text-center cursor-pointer"
           >
             احجز استشارتك الآن
@@ -46,6 +47,7 @@ export default function Hero() {
           
           <Link
             href="#services"
+            title="استعرض خدمات جراحات التجميل المتاحة"
             className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/30 text-white font-semibold hover:bg-white/20 transition-all duration-300 text-center"
           >
             استكشف الخدمات

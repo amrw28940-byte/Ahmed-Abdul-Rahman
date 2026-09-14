@@ -15,10 +15,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "عيادة د. أحمد عبد الرحمن - جراحة التجميل والليزر",
-  description: "موقع السيرة الذاتية وخدمات جراحة التجميل والليزر",
-};
 
 export default function RootLayout({
   children,

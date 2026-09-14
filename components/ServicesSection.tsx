@@ -48,7 +48,7 @@ const servicesData = [
 
 export default function ServicesSection() {
   return (
-    <section className="py-24 px-6 bg-slate-50 text-right text-slate-900 relative overflow-hidden" dir="rtl">
+    <section id="services" className="py-24 px-6 bg-slate-50 text-right text-slate-900 relative overflow-hidden" dir="rtl">
       
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#5bc0de]/15 rounded-full blur-[120px] pointer-events-none" />
 
@@ -74,7 +74,7 @@ export default function ServicesSection() {
             >
               <Image
                 src={service.image}
-                alt={service.title}
+                alt={`صورة توضيحية لخدمة ${service.title} مع الدكتور أحمد عبد الرحمن`}
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-700 filter brightness-90"
               />
@@ -92,6 +92,7 @@ export default function ServicesSection() {
                 <div className="pt-1 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
                   <Link
                     href="/booking"
+                    title={`احجز استشارتك الآن لخدمة ${service.title}`}
                     className="inline-flex items-center justify-center w-full py-2.5 rounded-xl bg-[#0082a9] text-white font-semibold text-xs shadow-lg hover:bg-[#5bc0de] transition-all"
                   >
                     احجز استشارة لهذه الخدمة
