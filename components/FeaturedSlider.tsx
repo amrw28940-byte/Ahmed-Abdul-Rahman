@@ -36,6 +36,7 @@ export default function FeaturedSlider() {
         <Image
           src="/k.webp"
           alt="د. أحمد عبد الرحمن - جراحات التجميل"
+          title="عيادة د. أحمد عبد الرحمن لاستشاري جراحات التجميل وتنسيق القوام"
           fill
           className="object-cover object-center filter brightness-90"
           priority
@@ -64,6 +65,7 @@ export default function FeaturedSlider() {
         <div>
           <Link
             href="/booking"
+            title="احجز موعد استشارتك الطبية المباشرة مع الدكتور أحمد عبد الرحمن الآن"
             className="inline-block px-10 py-4 rounded-xl bg-[#0082a9] text-white font-bold text-base shadow-2xl hover:bg-[#5bc0de] transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
           >
             احجز استشارتك الآن
@@ -76,6 +78,7 @@ export default function FeaturedSlider() {
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
+              title={`الانتقال إلى الشريحة التعريفية رقم ${index + 1}`}
               className={`h-3 rounded-full transition-all duration-300 ${
                 currentSlide === index ? 'w-8 bg-[#5bc0de]' : 'w-3 bg-white/40 hover:bg-white/60'
               }`}
@@ -89,6 +92,7 @@ export default function FeaturedSlider() {
       {/* أزرار التنقل يمين ويسار */}
       <button
         onClick={prevSlide}
+        title="الانتقال إلى الشريحة السابقة"
         aria-label="Previous Slide"
         className="absolute right-12 md:right-16 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-[#0082a9]/80 backdrop-blur-md text-white flex items-center justify-center shadow-lg hover:bg-[#0082a9] transition-all cursor-pointer"
       >
@@ -97,6 +101,7 @@ export default function FeaturedSlider() {
 
       <button
         onClick={nextSlide}
+        title="الانتقال إلى الشريحة التالية"
         aria-label="Next Slide"
         className="absolute left-12 md:left-16 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-[#0082a9]/80 backdrop-blur-md text-white flex items-center justify-center shadow-lg hover:bg-[#0082a9] transition-all cursor-pointer"
       >

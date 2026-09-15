@@ -7,41 +7,57 @@ const servicesData = [
   {
     title: "حقن البوتوكس للخطوط التعبيرية",
     image: "/botox.webp",
+    imageTitle: "صورة توضيحية لخدمة حقن البوتوكس للخطوط التعبيرية مع دكتور أحمد عبد الرحمن",
+    linkTitle: "احجز استشارتك الآن لمعرفة تفاصيل جلسات حقن البوتوكس",
     span: "col-span-1 md:col-span-2 lg:col-span-1"
   },
   {
     title: "فلير الشفايف والوجه",
     image: "/fillers.webp",
+    imageTitle: "صورة توضيحية لخدمة فيلر الشفايف والوجه مع دكتور أحمد عبد الرحمن",
+    linkTitle: "احجز استشارتك الآن لمعرفة تفاصيل جلسات الفيلر والتجميل",
     span: "col-span-1 md:col-span-1 lg:col-span-2"
   },
   {
     title: "شد الوجه بالخيوط",
     image: "/Threadlift.webp",
+    imageTitle: "صورة توضيحية لخدمة شد الوجه بالخيوط التجميلية مع دكتور أحمد عبد الرحمن",
+    linkTitle: "احجز استشارتك الآن لمعرفة تفاصيل شد الوجه بالخيوط",
     span: "col-span-1 md:col-span-1 lg:col-span-1"
   },
   {
     title: "إزالة ندبات حب الشباب",
     image: "/Acne Scars.webp",
+    imageTitle: "صورة توضيحية لخدمة إزالة ندبات حب الشباب وتصفية البشرة مع دكتور أحمد عبد الرحمن",
+    linkTitle: "احجز استشارتك الآن لمعرفة تفاصيل علاج ندبات حب الشباب",
     span: "col-span-1 md:col-span-2 lg:col-span-2"
   },
   {
     title: "ليزر نضارة وتجديد الجلد",
     image: "/Skin Lasers.webp",
+    imageTitle: "صورة توضيحية لخدمة ليزر النضارة وتجديد الجلد مع دكتور أحمد عبد الرحمن",
+    linkTitle: "احجز استشارتك الآن لمعرفة تفاصيل جلسات ليزر نضارة البشرة",
     span: "col-span-1 md:col-span-1 lg:col-span-1"
   },
   {
     title: "جلسات الميكرونيدلينغ للكولاجين",
     image: "/Microneedling.webp",
+    imageTitle: "صورة توضيحية لجلسات الميكرونيدلينغ وتحفيز الكولاجين مع دكتور أحمد عبد الرحمن",
+    linkTitle: "احجز استشارتك الآن لمعرفة تفاصيل جلسات الميكرونيدلينغ",
     span: "col-span-1 md:col-span-1 lg:col-span-1"
   },
   {
     title: "تقشير كيميائي للوجه",
     image: "/Chemical Peels.webp",
+    imageTitle: "صورة توضيحية لخدمة التقشير الكيميائي للوجه مع دكتور أحمد عبد الرحمن",
+    linkTitle: "احجز استشارتك الآن لمعرفة تفاصيل جلسات التقشير الكيميائي",
     span: "col-span-1 md:col-span-1 lg:col-span-2"
   },
   {
     title: "شد الترهلات وأجهزة شد الجلد",
     image: "/Skin Tightening.webp",
+    imageTitle: "صورة توضيحية لخدمة شد الترهلات وأجهزة شد الجلد مع دكتور أحمد عبد الرحمن",
+    linkTitle: "احجز استشارتك الآن لمعرفة تفاصيل أجهزة شد الجلد والترهلات",
     span: "col-span-1 md:col-span-2 lg:col-span-2"
   }
 ];
@@ -75,6 +91,7 @@ export default function ServicesSection() {
               <Image
                 src={service.image}
                 alt={`صورة توضيحية لخدمة ${service.title} مع الدكتور أحمد عبد الرحمن`}
+                title={service.imageTitle}
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-700 filter brightness-90"
               />
@@ -92,7 +109,7 @@ export default function ServicesSection() {
                 <div className="pt-1 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
                   <Link
                     href="/booking"
-                    title={`احجز استشارتك الآن لخدمة ${service.title}`}
+                    title={service.linkTitle}
                     className="inline-flex items-center justify-center w-full py-2.5 rounded-xl bg-[#0082a9] text-white font-semibold text-xs shadow-lg hover:bg-[#5bc0de] transition-all"
                   >
                     احجز استشارة لهذه الخدمة

@@ -1,67 +1,94 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
-    <header className="sticky top-0 z-50 w-full font-sans shadow-[0_15px_40px_rgba(0,130,169,0.3)]" dir="rtl">
+    <header className="relative md:sticky top-0 z-50 w-full font-sans shadow-[0_15px_40px_rgba(0,130,169,0.3)]" dir="rtl">
       
-      {/* القسم الأول (فوق): اللوجو، اسم الدكتور، الروابط، وزر الحجز */}
-      <div className="bg-[#0082a9] px-6 py-5 md:py-6 flex flex-col lg:flex-row items-center justify-between gap-6 relative overflow-hidden border-b border-white/10">
+      {/* القسم الأول (فوق): اللوجو، اسم الدكتور، الروابط، زر الحجز، وهمبرجر الموبايل */}
+      <div className="bg-[#0082a9] px-4 md:px-6 py-4 md:py-6 flex items-center justify-between gap-4 relative overflow-hidden border-b border-white/10">
         <div className="absolute -left-10 -bottom-10 w-40 h-40 bg-white/10 rounded-full blur-2xl pointer-events-none" />
         
         {/* اللوجو والاسم */}
-        <Link href="/" title="الصفحة الرئيسية - عيادة الدكتور أحمد عبد الرحمن" className="flex items-center gap-4 group">
-          <div className="relative w-16 h-16 md:w-18 md:h-18 rounded-2xl overflow-hidden border-2 border-white/40 shadow-xl bg-white flex-shrink-0 group-hover:scale-105 transition-transform">
+        <Link 
+          href="/" 
+          title="الصفحة الرئيسية - عيادة الدكتور أحمد عبد الرحمن استشاري جراحة التجميل" 
+          className="flex items-center gap-3 md:gap-4 group"
+        >
+          <div className="relative w-14 h-14 md:w-18 md:h-18 rounded-2xl overflow-hidden border-2 border-white/40 shadow-xl bg-white flex-shrink-0 group-hover:scale-105 transition-transform">
             <Image
               src="/logo.webp"
               alt="شعار عيادة الدكتور أحمد عبد الرحمن استشاري جراحة التجميل"
+              title="شعار عيادة الدكتور أحمد عبد الرحمن"
               fill
               className="object-cover"
+              priority
             />
           </div>
-          <div className="flex flex-col text-white text-center sm:text-right">
-            <span className="text-lg md:text-xl font-extrabold tracking-wide">
+          <div className="flex flex-col text-white text-right">
+            <span className="text-base md:text-xl font-extrabold tracking-wide">
               عيادة الدكتور أحمد عبد الرحمن
             </span>
-            <span className="text-xs font-light text-white/90">
+            <span className="text-[11px] md:text-xs font-light text-white/90">
               استشاري جراحة التجميل والليزر
             </span>
           </div>
         </Link>
 
-        {/* القائمة الرئيسية (خط كبير، عريض، وشيك جداً) */}
-        <nav className="hidden md:flex items-center gap-8 text-white text-base font-bold tracking-wide">
+        {/* القائمة الرئيسية للشاشات الكبيرة (سطح المكتب) */}
+        <nav className="hidden lg:flex items-center gap-8 text-white text-base font-bold tracking-wide">
           <Link href="/" title="الذهاب إلى الصفحة الرئيسية" className="hover:text-[#5bc0de] transition-colors relative py-1 after:absolute after:bottom-0 after:right-0 after:w-0 after:h-0.5 after:bg-[#5bc0de] hover:after:w-full after:transition-all">
             الرئيسية
           </Link>
-          <Link href="/services" title="استعرض خدماتنا الطبية والتجميلية" className="hover:text-[#5bc0de] transition-colors relative py-1 after:absolute after:bottom-0 after:right-0 after:w-0 after:h-0.5 after:bg-[#5bc0de] hover:after:w-full after:transition-all">
+          <Link href="/services" title="استعرض خدماتنا الطبية والتجميلية المتقدمة" className="hover:text-[#5bc0de] transition-colors relative py-1 after:absolute after:bottom-0 after:right-0 after:w-0 after:h-0.5 after:bg-[#5bc0de] hover:after:w-full after:transition-all">
             خدماتنا الطبية
           </Link>
-          <Link href="/about" title="تعرف أكثر على مسيرة دكتور أحمد عبد الرحمن" className="hover:text-[#5bc0de] transition-colors relative py-1 after:absolute after:bottom-0 after:right-0 after:w-0 after:h-0.5 after:bg-[#5bc0de] hover:after:w-full after:transition-all">
+          <Link href="/about" title="تعرف أكثر على مسيرة وخبرة الدكتور أحمد عبد الرحمن" className="hover:text-[#5bc0de] transition-colors relative py-1 after:absolute after:bottom-0 after:right-0 after:w-0 after:h-0.5 after:bg-[#5bc0de] hover:after:w-full after:transition-all">
             من نحن
           </Link>
         </nav>
 
-        {/* زر الحجز السريع */}
-        <Link
-          href="/booking"
-          title="احجز موعد استشارتك الطبية الآن"
-          className="px-7 py-3 rounded-2xl bg-slate-950 text-white font-bold text-sm shadow-2xl hover:bg-slate-900 hover:scale-105 transition-all border border-white/20 whitespace-nowrap"
-        >
-          احجز استشارتك
-        </Link>
+        {/* أزرار سطح المكتب (حجز + همبرجر للموبايل) */}
+        <div className="flex items-center gap-3">
+          <Link
+            href="/booking"
+            title="حجز موعد استشارة طبية أو تجميلية فورية"
+            className="hidden sm:inline-flex px-6 md:px-7 py-2.5 md:py-3 rounded-2xl bg-slate-950 text-white font-bold text-xs md:text-sm shadow-2xl hover:bg-slate-900 hover:scale-105 transition-all border border-white/25 whitespace-nowrap"
+          >
+            احجز استشارتك
+          </Link>
+
+          {/* زر همبرجر الموبايل */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            title="فتح أو إغلاق القائمة الرئيسية"
+            aria-label="القائمة الرئيسية"
+            className="lg:hidden p-2.5 rounded-xl bg-white/10 text-white hover:bg-white/20 transition-colors focus:outline-none border border-white/20"
+          >
+            <svg className="w-6 h-6 fill-current" viewBox="0 0 448 512">
+              {mobileMenuOpen ? (
+                <path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z" />
+              ) : (
+                <path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM432 416L32 416c-17.7 0-32-14.3-32-32s14.3-32 32-32l400 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z" />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
-      {/* القسم الثاني (تحت): رقم الهاتف وأيقونات التواصل */}
-      <div className="bg-[#5bc0de] px-6 py-3.5 flex flex-col sm:flex-row items-center justify-between gap-4 relative overflow-hidden border-b-4 border-[#0082a9]">
+      {/* القسم الثاني (تحت للشاشات الكبيرة): رقم الهاتف وأيقونات التواصل */}
+      <div className="hidden lg:flex bg-[#5bc0de] px-6 py-3.5 items-center justify-between gap-4 relative overflow-hidden border-b-4 border-[#0082a9]">
         <div className="absolute -right-10 -top-10 w-40 h-40 bg-white/25 rounded-full blur-2xl pointer-events-none" />
         
         {/* رقم الهاتف */}
         <a 
           href="tel:01020347956" 
-          title="اتصل بنا مباشرة عبر الهاتف"
+          title="الاتصال المباشر بعيادة الدكتور أحمد عبد الرحمن عبر الهاتف"
           className="flex items-center gap-3 text-slate-950 hover:text-white transition-colors font-bold text-sm bg-white/30 px-5 py-2 rounded-xl backdrop-blur-sm shadow-sm"
         >
           <span className="text-slate-900">
@@ -72,46 +99,126 @@ export default function Header() {
 
         {/* أيقونات التواصل الاجتماعي */}
         <div className="flex items-center gap-3">
-          
-          {/* واتساب */}
           <a 
             href="https://wa.me/2001020347956" 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center gap-2 bg-slate-950/20 hover:bg-emerald-600 text-white px-4 py-2 rounded-xl text-xs font-semibold transition-all shadow-sm border border-white/20 group"
-            title="تواصل معنا عبر واتساب"
+            title="تواصل معنا فوراً عبر تطبيق واتساب"
           >
             <svg className="w-4 h-4 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18.1-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18.1-17.5 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
             <span>واتساب</span>
           </a>
 
-          {/* فيسبوك */}
           <a 
             href="https://facebook.com" 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center gap-2 bg-slate-950/20 hover:bg-blue-600 text-white px-4 py-2 rounded-xl text-xs font-semibold transition-all shadow-sm border border-white/20 group"
-            title="تابعنا على صفحة فيسبوك"
+            title="تابع صفحة العيادة الرسمية على فيسبوك"
           >
             <svg className="w-4 h-4 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 121.08-43.5 134.18-121.36 134.18V195.3h-60.14v92.66h60.14v224h100.16v-224z"/></svg>
             <span>فيسبوك</span>
           </a>
 
-          {/* يوتيوب */}
           <a 
             href="https://youtube.com" 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center gap-2 bg-slate-950/20 hover:bg-red-600 text-white px-4 py-2 rounded-xl text-xs font-semibold transition-all shadow-sm border border-white/20 group"
-            title="تابع الفيديوهات الطبية على يوتيوب"
+            title="شاهد الفيديوهات والنصائح الطبية على قناة يوتيوب"
           >
             <svg className="w-4 h-4 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.585l142.739 61.942-142.739 62.064z"/></svg>
             <span>يوتيوب</span>
           </a>
-
         </div>
-
       </div>
+
+      {/* قائمة الموبايل المنسدلة (تظهر عند النقر على الهمبرجر) */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden bg-[#0082a9] border-t border-white/15 px-6 py-6 space-y-5 text-white shadow-2xl transition-all animate-fadeIn">
+          <nav className="flex flex-col space-y-3.5 text-base font-bold">
+            <Link 
+              href="/" 
+              onClick={() => setMobileMenuOpen(false)}
+              title="الذهاب إلى الصفحة الرئيسية" 
+              className="hover:text-[#5bc0de] transition-colors py-1.5 border-b border-white/10"
+            >
+              الرئيسية
+            </Link>
+            <Link 
+              href="/services" 
+              onClick={() => setMobileMenuOpen(false)}
+              title="استعرض خدماتنا الطبية والتجميلية" 
+              className="hover:text-[#5bc0de] transition-colors py-1.5 border-b border-white/10"
+            >
+              خدماتنا الطبية
+            </Link>
+            <Link 
+              href="/about" 
+              onClick={() => setMobileMenuOpen(false)}
+              title="تعرف أكثر على مسيرة دكتور أحمد عبد الرحمن" 
+              className="hover:text-[#5bc0de] transition-colors py-1.5 border-b border-white/10"
+            >
+              من نحن
+            </Link>
+          </nav>
+
+          {/* زر الحجز السريع للموبايل داخل المنيو */}
+          <div className="pt-2">
+            <Link
+              href="/booking"
+              onClick={() => setMobileMenuOpen(false)}
+              title="احجز موعد استشارتك الطبية الآن"
+              className="block text-center py-3.5 rounded-xl bg-slate-950 text-white font-bold text-sm shadow-xl border border-white/20"
+            >
+              احجز استشارتك الآن
+            </Link>
+          </div>
+
+          {/* رقم الهاتف والتواصل داخل قائمة الموبايل */}
+          <div className="pt-4 border-t border-white/15 space-y-3">
+            <a 
+              href="tel:01020347956" 
+              title="اتصل بنا مباشرة عبر الهاتف"
+              className="flex items-center justify-center gap-3 text-slate-950 font-bold text-sm bg-white px-4 py-2.5 rounded-xl shadow-sm"
+            >
+              <span>📞</span>
+              <span>01020347956</span>
+            </a>
+
+            <div className="grid grid-cols-3 gap-2 pt-1">
+              <a 
+                href="https://wa.me/2001020347956" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-1 bg-emerald-600 text-white py-2 rounded-xl text-xs font-semibold shadow-sm"
+                title="تواصل عبر واتساب"
+              >
+                واتساب
+              </a>
+              <a 
+                href="https://facebook.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-1 bg-blue-600 text-white py-2 rounded-xl text-xs font-semibold shadow-sm"
+                title="تابعنا على فيسبوك"
+              >
+                فيسبوك
+              </a>
+              <a 
+                href="https://youtube.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-1 bg-red-600 text-white py-2 rounded-xl text-xs font-semibold shadow-sm"
+                title="تابع فيديوهاتنا على يوتيوب"
+              >
+                يوتيوب
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* تأثير التوهج السفلي */}
       <div className="absolute -bottom-2 left-0 right-0 h-4 bg-[#5bc0de] blur-md opacity-85 pointer-events-none" />
