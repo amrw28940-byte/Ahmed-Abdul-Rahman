@@ -8,19 +8,25 @@ const resultsData = [
     id: 1,
     title: "تجميل وترميم الأنف",
     description: "إعادة رسم وتعديل هيكل الأنف للحصول على مظهر متناسق وطبيعي يتماشى مع ملامح الوجه مع الحفاظ على كفاءة التنفس.",
-    image: "/aa.webp"
+    image: "/aa.webp",
+    imageTitle: "نتيجة عملية تجميل وترميم الأنف قبل وبعد مع دكتور أحمد عبد الرحمن",
+    linkTitle: "احجز استشارتك الآن لمعرفة تفاصيل عملية تجميل وترميم الأنف"
   },
   {
     id: 2,
     title: "نحت القوام وشد البطن",
     description: "تخلص من الدهون المستعصية وشد عضلات البطن للحصول على قوام متناسق ومثالي بأحدث تقنيات النحت الجراحي.",
-    image: "/bb.webp"
+    image: "/bb.webp",
+    imageTitle: "نتيجة عملية نحت القوام وشد البطن قبل وبعد مع دكتور أحمد عبد الرحمن",
+    linkTitle: "احجز استشارتك الآن لمعرفة تفاصيل عملية نحت القوام وشد البطن"
   },
   {
     id: 3,
     title: "إجراءات تجميل الوجه",
     description: "إعادة نضارة وشباب الوجه وإبراز الملامح الجمالية بطرق دقيقة تضمن نتائج واقعية ومبهرة.",
-    image: "/cc.webp"
+    image: "/cc.webp",
+    imageTitle: "نتيجة إجراءات تجميل الوجه ونضارة البشرة مع دكتور أحمد عبد الرحمن",
+    linkTitle: "احجز استشارتك الآن لمعرفة تفاصيل إجراءات تجميل الوجه"
   }
 ];
 
@@ -59,6 +65,7 @@ export default function ResultsSection() {
                 <Image
                   src={item.image}
                   alt={`نتيجة عملية ${item.title} مع دكتور أحمد عبد الرحمن`}
+                  title={item.imageTitle}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
@@ -82,7 +89,7 @@ export default function ResultsSection() {
                 <div className="pt-2">
                   <Link
                     href="/booking"
-                    title={`احجز استشارتك الآن لإجراء ${item.title}`}
+                    title={item.linkTitle}
                     className="inline-flex items-center justify-center w-full py-3 rounded-xl bg-[#0082a9] text-white font-semibold text-sm shadow-lg hover:bg-[#5bc0de] transition-all duration-300"
                   >
                     احجز استشارتك لهذه الحالة

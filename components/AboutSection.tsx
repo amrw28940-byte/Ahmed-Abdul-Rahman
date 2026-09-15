@@ -20,6 +20,7 @@ export default function AboutSection() {
                 <Image
                   src="/about.webp"
                   alt="د. أحمد عبد الرحمن استشاري جراحات التجميل وتنسيق القوام"
+                  title="الدكتور أحمد عبد الرحمن - استشاري جراحات التجميل والترميم"
                   fill
                   className="object-cover"
                 />
@@ -69,7 +70,7 @@ export default function AboutSection() {
           <div className="pt-4">
             <Link
               href="/about"
-              title="تعرف على السيرة الذاتية والمسيرة المهنية لدكتور أحمد عبد الرحمن"
+              title="تعرف على السيرة الذاتية والمسيرة المهنية لدكتور أحمد عبد الرحمن بالتفصيل"
               className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-[#0082a9] text-white font-semibold shadow-lg hover:bg-[#5bc0de] transition-all duration-300 transform hover:-translate-y-0.5"
             >
               <span>اقرأ المزيد عن مسيرتنا</span>

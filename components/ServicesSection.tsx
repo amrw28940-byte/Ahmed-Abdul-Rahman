@@ -8,56 +8,64 @@ const servicesData = [
     title: "حقن البوتوكس للخطوط التعبيرية",
     image: "/botox.webp",
     imageTitle: "صورة توضيحية لخدمة حقن البوتوكس للخطوط التعبيرية مع دكتور أحمد عبد الرحمن",
-    linkTitle: "احجز استشارتك الآن لمعرفة تفاصيل جلسات حقن البوتوكس",
+    linkTitle: "اقرأ المزيد واعرف تفاصيل جلسات حقن البوتوكس",
+    slug: "/services/botox-treatment", // مسار صفحة الخدمة الخاصة بها
     span: "col-span-1 md:col-span-2 lg:col-span-1"
   },
   {
     title: "فلير الشفايف والوجه",
     image: "/fillers.webp",
     imageTitle: "صورة توضيحية لخدمة فيلر الشفايف والوجه مع دكتور أحمد عبد الرحمن",
-    linkTitle: "احجز استشارتك الآن لمعرفة تفاصيل جلسات الفيلر والتجميل",
+    linkTitle: "اقرأ المزيد واعرف تفاصيل جلسات الفيلر والتجميل",
+    slug: "/services/facial-fillers",
     span: "col-span-1 md:col-span-1 lg:col-span-2"
   },
   {
     title: "شد الوجه بالخيوط",
     image: "/Threadlift.webp",
     imageTitle: "صورة توضيحية لخدمة شد الوجه بالخيوط التجميلية مع دكتور أحمد عبد الرحمن",
-    linkTitle: "احجز استشارتك الآن لمعرفة تفاصيل شد الوجه بالخيوط",
+    linkTitle: "اقرأ المزيد واعرف تفاصيل شد الوجه بالخيوط",
+    slug: "/services/thread-lift",
     span: "col-span-1 md:col-span-1 lg:col-span-1"
   },
   {
     title: "إزالة ندبات حب الشباب",
     image: "/Acne Scars.webp",
     imageTitle: "صورة توضيحية لخدمة إزالة ندبات حب الشباب وتصفية البشرة مع دكتور أحمد عبد الرحمن",
-    linkTitle: "احجز استشارتك الآن لمعرفة تفاصيل علاج ندبات حب الشباب",
+    linkTitle: "اقرأ المزيد واعرف تفاصيل علاج ندبات حب الشباب",
+    slug: "/services/acne-scars-removal",
     span: "col-span-1 md:col-span-2 lg:col-span-2"
   },
   {
     title: "ليزر نضارة وتجديد الجلد",
     image: "/Skin Lasers.webp",
     imageTitle: "صورة توضيحية لخدمة ليزر النضارة وتجديد الجلد مع دكتور أحمد عبد الرحمن",
-    linkTitle: "احجز استشارتك الآن لمعرفة تفاصيل جلسات ليزر نضارة البشرة",
+    linkTitle: "اقرأ المزيد واعرف تفاصيل جلسات ليزر نضارة البشرة",
+    slug: "/services/skin-rejuvenation-laser",
     span: "col-span-1 md:col-span-1 lg:col-span-1"
   },
   {
     title: "جلسات الميكرونيدلينغ للكولاجين",
     image: "/Microneedling.webp",
     imageTitle: "صورة توضيحية لجلسات الميكرونيدلينغ وتحفيز الكولاجين مع دكتور أحمد عبد الرحمن",
-    linkTitle: "احجز استشارتك الآن لمعرفة تفاصيل جلسات الميكرونيدلينغ",
+    linkTitle: "اقرأ المزيد واعرف تفاصيل جلسات الميكرونيدلينغ",
+    slug: "/services/microneedling-collagen",
     span: "col-span-1 md:col-span-1 lg:col-span-1"
   },
   {
     title: "تقشير كيميائي للوجه",
     image: "/Chemical Peels.webp",
     imageTitle: "صورة توضيحية لخدمة التقشير الكيميائي للوجه مع دكتور أحمد عبد الرحمن",
-    linkTitle: "احجز استشارتك الآن لمعرفة تفاصيل جلسات التقشير الكيميائي",
+    linkTitle: "اقرأ المزيد واعرف تفاصيل جلسات التقشير الكيميائي",
+    slug: "/services/chemical-peels",
     span: "col-span-1 md:col-span-1 lg:col-span-2"
   },
   {
     title: "شد الترهلات وأجهزة شد الجلد",
     image: "/Skin Tightening.webp",
     imageTitle: "صورة توضيحية لخدمة شد الترهلات وأجهزة شد الجلد مع دكتور أحمد عبد الرحمن",
-    linkTitle: "احجز استشارتك الآن لمعرفة تفاصيل أجهزة شد الجلد والترهلات",
+    linkTitle: "اقرأ المزيد واعرف تفاصيل أجهزة شد الجلد والترهلات",
+    slug: "/services/skin-tightening-devices",
     span: "col-span-1 md:col-span-2 lg:col-span-2"
   }
 ];
@@ -98,21 +106,30 @@ export default function ServicesSection() {
 
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent group-hover:via-slate-950/60 transition-all duration-500" />
 
-              {/* تأثير التوهج الداخلي والخارجي بنفس لون الصورة المرفقة */}
+              {/* تأثير التوهج الداخلي والخارجي */}
               <div className="absolute inset-0 border-2 border-[#5bc0de]/50 group-hover:border-[#5bc0de] rounded-3xl transition-all duration-500 pointer-events-none shadow-[inset_0_0_25px_rgba(91,192,222,0.5)]" />
 
               <div className="absolute inset-0 p-6 flex flex-col justify-end text-right z-20 space-y-3">
-                <h3 className="text-xl font-bold text-white group-hover:text-[#5bc0de] transition-colors drop-shadow-md">
-                  {service.title}
-                </h3>
+                <Link href={service.slug} title={service.linkTitle} className="block">
+                  <h3 className="text-xl font-bold text-white group-hover:text-[#5bc0de] transition-colors drop-shadow-md">
+                    {service.title}
+                  </h3>
+                </Link>
                 
-                <div className="pt-1 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                <div className="pt-1 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 flex gap-2">
+                  <Link
+                    href={service.slug}
+                    title={service.linkTitle}
+                    className="inline-flex items-center justify-center flex-1 py-2.5 rounded-xl bg-[#0082a9] text-white font-semibold text-xs shadow-lg hover:bg-[#5bc0de] transition-all"
+                  >
+                    تفاصيل الخدمة
+                  </Link>
                   <Link
                     href="/booking"
-                    title={service.linkTitle}
-                    className="inline-flex items-center justify-center w-full py-2.5 rounded-xl bg-[#0082a9] text-white font-semibold text-xs shadow-lg hover:bg-[#5bc0de] transition-all"
+                    title={`احجز استشارتك الآن لخدمة ${service.title}`}
+                    className="inline-flex items-center justify-center px-4 py-2.5 rounded-xl bg-white text-slate-900 font-semibold text-xs shadow-lg hover:bg-slate-100 transition-all"
                   >
-                    احجز استشارة لهذه الخدمة
+                    حجز
                   </Link>
                 </div>
               </div>
